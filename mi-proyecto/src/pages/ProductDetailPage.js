@@ -5,10 +5,45 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import SmartphoneImage from '../assets/smartphone.png';
+import TelevisionImage from '../assets/television.png';
+import ConsoleImage from '../assets/console.png';
+import PCImage from '../assets/pc.png';
 
-const ProductDetail = ({ products }) => {
+const ProductDetailPage = () => {
+  const initialProducts = [
+    {
+      id: 1,
+      image: SmartphoneImage,
+      name: 'Smartphone',
+      price: '699.99',
+      description: 'Descripción detallada del Smartphone...'
+    },
+    {
+      id: 2,
+      image: TelevisionImage,
+      name: 'Televisión',
+      price: '499.99',
+      description: 'Descripción detallada de la Televisión...'
+    },
+    {
+      id: 3,
+      image: ConsoleImage,
+      name: 'Consola de Videojuegos',
+      price: '399.99',
+      description: 'Descripción detallada de la Consola de Videojuegos...'
+    },
+    {
+      id: 4,
+      image: PCImage,
+      name: 'PC de Escritorio',
+      price: '799.99',
+      description: 'Descripción detallada del PC de Escritorio...'
+    }
+  ];
+
   const { id } = useParams();
-  const product = products.find(p => p.id === parseInt(id));
+  const product = initialProducts.find(p => p.id === parseInt(id));
 
   if (!product) {
     return <h2>Producto no encontrado</h2>;
@@ -44,4 +79,4 @@ const ProductDetail = ({ products }) => {
   );
 };
 
-export default ProductDetail;
+export default ProductDetailPage;
